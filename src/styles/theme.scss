@@ -1,0 +1,24 @@
+/* ===== App Design Tokens ===== */
+
+:root {
+  --primary: #1976d2;
+  --secondary: #f5f7fa;
+  --danger: #e53935;
+  --text-dark: #2c2c2c;
+  --text-light: #666;
+  --border-color: #e0e0e0;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+
+  --success: #2e7d32;
+  --warning: #f57c00;
+
+  --focus: rgba(25, 118, 210, 0.3);
+
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  --font: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+}

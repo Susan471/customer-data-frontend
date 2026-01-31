@@ -1,0 +1,224 @@
+/* ================================
+   GLOBAL FORM DESIGN SYSTEM
+================================ */
+
+//
+
+/* Main form card */
+.form-container {
+  position: relative;
+  max-width: 340px;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  margin-top: 0;
+}
+/* TOTAL FIELD HEIGHT */
+.form-container .mat-mdc-text-field-wrapper,
+.form-container .mdc-notched-outline {
+  height: 36px !important;
+}
+::ng-deep .form-container .mat-mdc-form-field-infix {
+  padding-top: 16px !important;
+  padding-bottom: 6px !important;
+  min-height: 36px !important;
+}
+
+/* Input text vertical alignment */
+.form-container .mat-mdc-input-element {
+  padding: 0px 8px;
+  line-height: 24px;
+}
+/* Floating label size */
+.form-container .mat-mdc-floating-label {
+  font-size: 13px;
+}
+/* Center label vertically when NOT floating */
+.form-container
+  .mat-mdc-form-field:not(.mat-mdc-form-field-has-label-float)
+  .mat-mdc-floating-label {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ================================
+   FORM HEADER
+================================ */
+
+.form-header {
+  display: flex;
+  align-items: center; /* vertical alignment */
+  justify-content: space-between; /* h2 left, close right */
+  padding: 12px 8px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Title */
+.form-header h2 {
+  margin-top: 0px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-btn {
+  position: relative;
+  height: 30px;
+  background: transparent;
+  border-color: #faf3f3;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #dd2e2e;
+  padding: 4px;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #fc021b;
+  background-color: #faf9f9;
+  transform: scale(1.2);
+}
+
+/* Material form field */
+.form-container mat-form-field {
+  width: 100%;
+}
+
+//mat-form field
+.compact .mat-mdc-form-field-infix {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* ✔ SAFE way to reduce field height */
+::ng-deep .form-container .mat-mdc-form-field-flex {
+  min-height: 44px; /* default 56px */
+}
+
+/* Input text */
+::ng-deep .form-container .mat-mdc-input-element {
+  font-size: 13px;
+}
+
+/* Floating label */
+::ng-deep .form-container .mat-mdc-floating-label {
+  font-size: 13px;
+}
+
+/* Error message */
+mat-error {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Password eye icon */
+::ng-deep .mat-mdc-form-field-icon-suffix {
+  color: #666;
+}
+/* ================================
+   FORMS INPUT BOXES
+================================ */
+/* DEFAULT BORDER */
+.mat-mdc-form-field .mdc-notched-outline__leading,
+.mat-mdc-form-field .mdc-notched-outline__notch,
+.mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-color: #c4c4c4;
+}
+
+/*  BLUE WHEN FOCUSED */
+.focused-field .mdc-notched-outline__leading,
+.focused-field .mdc-notched-outline__notch,
+.focused-field .mdc-notched-outline__trailing 
+{
+  border-color: #3f51b5 !important;
+  border-width: 2px !important;
+}
+
+/* RED ONLY WHEN INVALID AND NOT FOCUSED */
+.mat-mdc-form-field-invalid:not(.focused-field) .mdc-notched-outline__leading,
+.mat-mdc-form-field-invalid:not(.focused-field) .mdc-notched-outline__notch,
+.mat-mdc-form-field-invalid:not(.focused-field) .mdc-notched-outline__trailing {
+  border-color: #f44336 !important;
+}
+
+/* Label colors */
+.focused-field .mdc-floating-label {
+  color: #3f51b5 !important;
+}
+
+.mat-mdc-form-field-invalid:not(.focused-field) .mdc-floating-label {
+  color: #f44336 !important;
+}
+
+/* ================================
+   FORM BUTTONS
+================================ */
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 0;
+  margin-right: 20px;
+}
+/* SINGLE BUTTON */
+.button-group.single button {
+  width: 100%;
+  align-items: center;
+  color: white;
+  background-color: rgb(55, 202, 55);
+}
+
+/* DOUBLE BUTTONS */
+.button-group.double {
+  gap: 15px;
+}
+
+/* DOUBLE BUTTONS */
+.button-group.double button {
+  width: 100%;
+}
+
+/* Cancel button hover */
+::ng-deep .cancel-btn:hover {
+  background-color: #ff6b6b !important; /* your custom hover color */
+  color: rgb(104, 182, 27) !important; /* optional: text color on hover */
+  transform: scale(1.05); /* optional: hover zoom effect */
+}
+
+/* ================================
+   LOGIN / REGISTER FOOTER
+================================ */
+
+.auth-footer {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-footer a {
+  margin-left: 6px;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}

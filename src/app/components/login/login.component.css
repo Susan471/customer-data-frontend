@@ -1,0 +1,18 @@
+/* TOTAL FIELD HEIGHT */
+.form-container .mat-mdc-text-field-wrapper,
+.form-container .mdc-notched-outline {
+  height: 36px !important;
+}
+
+/* THIS is the key */
+::ng-deep .form-container .mat-mdc-form-field-infix {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  min-height: 36px !important;
+}
+
+/* Input text */
+::ng-deep .form-container .mat-mdc-input-element {
+  padding: 0 8px !important;
+  line-height: 24px; /* keeps text centered */
+}

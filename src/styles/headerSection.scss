@@ -1,0 +1,139 @@
+/* ================================ */
+/*         HEADER LAYOUT            */
+/* ================================ */
+
+.header.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  color: white;
+  background: #000080;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 0px;
+}
+
+/* Username box white */
+.user-logout .username {
+  background: #ffffff;
+  color: #070707; /* dark text */
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+/* ================================ */
+/*           TITLE                  */
+/* ================================ */
+
+.header.section h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+/* ================================ */
+/*        RIGHT HEADER AREA         */
+/* ================================ */
+
+.right-headers {
+  position: relative;
+  top: 12px;
+  display: flex; /* horizontal layout */
+  align-items: center; /* vertically center everything */
+  gap: 10px; /* space between search, buttons, logout */
+  margin-left: 45px;
+}
+
+/* ================================ */
+/*           SEARCH BOX             */
+/* ================================ */
+
+.search-icon {
+  padding-left: 8px;
+  color: rgb(136, 129, 129);
+}
+
+.search-field {
+  --mat-form-field-container-height: 30px;
+  --mat-form-field-container-vertical-padding: 5px;
+}
+.right-headers mat-form-field {
+  height: 33px;
+}
+.right-headers .mat-mdc-text-field-wrapper {
+  background-color: #ffffff !important;
+  border-radius: 6px;
+}
+
+/* ================================ */
+/*        ICON BUTTON BOXES         */
+/* ================================ */
+
+.header.section button,
+.action-container button,
+.form-header button,
+.filter-resetBtn,
+.close-btn {
+  width: 26px;
+  height: 26px; /*here the action container buttons are the edit and delete*/
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+.header.section button:hover {
+  background: var(--secondary);
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+/* Disabled */
+.header.section button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ================================ */
+/*         USER / LOGOUT            */
+/* ================================ */
+
+/* User logout section (stacked inside horizontal row) */
+.user-logout {
+  position: relative;
+  display: flex;
+  flex-direction: column; /* username above logout button */
+  align-items: center; /* horizontally center username/logout inside the column */
+  justify-content: center; /* vertically center in the row */
+  gap: 4px; /* space between username and logout button */
+  margin: 0;
+  bottom: 13px; /* remove padding-bottom */
+}
+
+/* Username box */
+.user-logout .username {
+  position: relative;
+  margin-right: 5px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+.right-headers-btn {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

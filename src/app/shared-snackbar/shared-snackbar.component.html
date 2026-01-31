@@ -1,0 +1,25 @@
+<div class="toast-card" [ngClass]="data.type">
+
+  <!-- HEADER -->
+  <div class="toast-header">
+    <span class="toast-title">
+      {{ getTitle() }}
+    </span>
+
+    <button mat-icon-button class="close-btn" (click)="cancel()">✕</button>
+  </div>
+
+  <!-- MESSAGE -->
+  <div class="toast-body">
+    {{ data.message }}
+  </div>
+
+  <!-- ACTION BUTTONS (ONLY FOR CONFIRM) -->
+  @if (data.type === 'confirm') {
+    <div class="toast-actions">
+      <button mat-button class="confirm-btn" (click)="confirm()">Yes</button>
+      <button mat-button class="cancel-btn" (click)="cancel()">Cancel</button>
+    </div>
+  }
+
+</div>

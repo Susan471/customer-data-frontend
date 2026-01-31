@@ -1,0 +1,95 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: #f4f6f9;
+  color: var(--text-dark);
+}
+.page-layout {
+  height: 100vh; /* full screen */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page title (used in form & table headers) */
+.page-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Top header (your employee header) */
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+/* TABLE CARD stretches */
+.table-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* CONTENT AREA grows */
+.content-area {
+  flex: 1;
+  display: flex;
+  min-height: 0; /* ALLOWS CHILD TO SCROLL */
+  overflow: hidden;
+}
+table.mat-mdc-table {
+  table-layout: fixed;
+}
+/* ONLY table scrolls */
+.table-scroll-container {
+  flex: 1;
+  overflow-y: auto; /* vertical scroll only */
+  min-height: 0;
+}
+
+/* Footer (Paginator area) */
+.app-footer {
+  flex-shrink: 0;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+  padding: 8px 0;
+}
+
+/* SCROLLBAR-HIDE */
+.table-scroll-container::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* Firefox */
+.table-scroll-container {
+  scrollbar-width: none;
+}
+
+/*  Remove Material Snackbar Background COMPLETELY */
+.custom-toast-container {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Wrapper layer */
+.custom-toast-container .mdc-snackbar__surface {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Container layer */
+.mat-mdc-snack-bar-container {
+  background: transparent !important;
+  box-shadow: none !important;
+}

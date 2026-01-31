@@ -1,0 +1,121 @@
+/* ===================================== */
+/*       TABLE-SPECIFIC STYLES           */
+/* ===================================== */
+
+.mat-mdc-table {
+  border-collapse: separate !important;
+  border-spacing: 0;
+  width: 100%;
+}
+
+/* FIXED STICKY HEADER */
+.mat-mdc-header-row {
+  background-color: #050e3c;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+
+.mat-mdc-header-cell {
+  background-color: #050e3c !important;
+  color: #fff !important; /*#0f172a*/
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  font-size: 13px;
+  padding: 12px 56px !important;
+  justify-content: center !important; /* horizontal */
+  align-items: center !important; /* vertical */
+  text-align: center !important;
+  white-space: nowrap;
+}
+
+.mat-mdc-cell {
+  font-size: 13px;
+  padding: 12px 56px;
+  align-items: center;
+  justify-content: center;
+  
+}
+/* Sort-Arrow  */
+/* SORT ARROW COLOR */
+::ng-deep .mat-sort-header-arrow {
+  color: #ffffff !important; /* Arrow color */
+  opacity: 0.3 !important; /* Make it fully visible */
+}
+
+/* Arrow when actively sorted */
+::ng-deep .mat-sort-header-sorted .mat-sort-header-arrow {
+  color: #facc15 !important; /* Yellow highlight when active */
+  opacity: 5 !important; /* Make it fully visible */
+}
+
+.mat-sort-header-arrow {
+  color: white !important;
+}
+
+/* Action column */
+.mat-column-action {
+  text-align: center;
+}
+
+/* Action buttons inside a cell */
+.action-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* Zebra striping for table rows */
+.mat-mdc-row:nth-child(even) {
+  background: #fafafa;
+}
+
+/* Hover highlight */
+.mat-mdc-row:hover {
+  background: #e3f2fd;
+}
+
+.sort-btn {
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.sort-btn-active {
+  background: #d25d19;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 0 6px rgba(25, 118, 210, 0.5);
+}
+
+.filter-resetBtn {
+  position: relative;
+  top: -10px;
+}
+
+/* Main paginator container */
+::ng-deep .mat-mdc-paginator {
+  background: transparent !important;
+  font-size: 13px;
+}
+
+/* "Items per page" text */
+::ng-deep .mat-mdc-paginator-page-size-label {
+  font-weight: 500;
+  color: #334155;
+}
+
+/* Dropdown (page size select) */
+::ng-deep .mat-mdc-select-trigger {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Range label (1–5 of 20) */
+::ng-deep .mat-mdc-paginator-range-label {
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 12px;
+}

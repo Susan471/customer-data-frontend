@@ -1,0 +1,140 @@
+/*       GLOBAL STYLES (Shared)          */
+/* ===================================== */
+
+/* Table general style */
+table.mat-mdc-table {
+  width: 100%;
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+
+.header-cell-content {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* keep centered */
+  gap: 8px; /* space between Name & icon */
+}
+
+//Filter-Box styles
+
+.common-filter-box {
+  position: absolute; /* absolute now */
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+//filter box and sort  style and highlights
+.common-filter-box mat-form-field {
+  width: 250px;
+  height: 60px;
+}
+.filter-box-topElements {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sort-container {
+  display: flex; /* Flex container */
+  flex-direction: column; /* Stack items vertically */
+  margin-top: 8px; /* Some spacing from input */
+  gap: 5px; /* Space between buttons */
+}
+
+.sort-btn {
+  cursor: pointer;
+  padding: 4px 8px;
+  background-color: #faf5f5;
+  border-radius: 4px;
+  text-align: center;
+  width: max-content;
+  /* Shrink to content width */
+}
+
+/* Filter applied → blue highlight */
+.filter-active {
+  color: #1976d2; /* blue */
+  text-shadow: 0 0 6px rgba(25, 118, 210, 0.6);
+  transform: scale(1.15);
+}
+
+/* Sorted → orange highlight */
+.sort-active {
+  color: #ff9800; /* orange */
+  text-shadow: 0 0 6px rgba(255, 152, 0, 0.6);
+  transform: scale(1.2);
+}
+
+/* Active sort button highlight */
+.sort-btn.active {
+  background-color: #f7f8f8; /* orange */
+  color: rgb(241, 153, 37);
+  font-weight: 600;
+  box-shadow: 0 0 6px rgba(255, 152, 0, 0.6);
+}
+
+
+//disble header text click
+.no-click {
+  pointer-events: none;
+}
+//cursor none for header cell
+.mat-mdc-header-cell {
+  cursor: default !important;
+  pointer-events: none;
+  text-align: center;
+}
+//Sort arrow in header row
+.mat-sort-header-arrow {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+//filter icon events allow
+
+.filter-btn {
+  pointer-events: auto;
+  cursor: pointer;
+}
+.mat-mdc-paginator-page-size {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mat-mdc-paginator-navigation {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+//Nodata found box
+/* Hide default row height effect */
+.no-data-box {
+  height: 0; /* remove normal row height */
+}
+
+.no-data-cell {
+  position: absolute;
+  top: 60%;
+  left: 90%;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 18px;
+  color: #6b7280;
+  width: 100%;
+}
+
+.no-data-cell i {
+  display: block;
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #9ca3af;
+}

@@ -1,0 +1,55 @@
+/* ============================= */
+/*  GLOBAL MATERIAL BUTTON STYLE */
+/* ============================= */
+
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-flat-button,
+.mat-mdc-button {
+  border-radius: 8px !important;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  padding: 8px 18px;
+  min-height: 40px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+
+/* Primary buttons (Add, Save, Submit) */
+.mat-mdc-raised-button.mat-primary {
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(25,118,210,.3);
+}
+
+.mat-mdc-raised-button.mat-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(25,118,210,.4);
+}
+
+/* Secondary buttons (Cancel, Reset) */
+.mat-mdc-raised-button.mat-accent {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.mat-mdc-raised-button.mat-accent:hover {
+  background: #d5d5d5;
+}
+
+/* Warn buttons (Delete, Logout) */
+.mat-mdc-raised-button.mat-warn {
+  background: linear-gradient(135deg, #e53935, #c62828);
+  color: white;
+}
+
+/* Disabled buttons */
+.mat-mdc-raised-button:disabled {
+  background: #cfd8dc !important;
+  color: #777 !important;
+  box-shadow: none;
+}
+

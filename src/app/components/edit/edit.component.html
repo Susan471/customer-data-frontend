@@ -1,0 +1,156 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+<div class="header section">
+  <div class="left-headers">
+    <button color="primary" class="backBtn" (click)="getBack()" matTooltip="Back">
+      <i class="fa fa-arrow-left fa-sm"></i>
+    </button>
+  </div>
+
+  <div class="right-headers">
+    <div class="user-logout">
+      <div class="username">
+        <i class="fa fa-user"></i>
+        {{ username }}
+      </div>
+
+      <button class="logout-btn" type="button" (click)="logout()" matTooltip="logout">
+        <i class="fa-solid fa-right-from-bracket icon"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form-container" autocomplete="off">
+  <div class="form-header">
+    <h2>Edit Employee</h2>
+    <!-- Close button -->
+    <button
+      type="button"
+      class="close-btn"
+      (click)="closeForm()"
+      matTooltip="Close"
+      matTooltipShowDelay="300"
+      matTooltipHideDelay="100"
+    >
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+
+  <!-- EMPLOYEE CODE -->
+  <mat-form-field appearance="outline"  [class.focused-field]="focusedField === 'code'">
+    <mat-label>Employee Code</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="editEmpCode"
+      maxlength="10"
+      (focus)="focusedField = 'code'"
+      (blur)="focusedField = 'null'"
+    />
+
+   
+    @if (editedForm['editEmpCode'].invalid && editedForm['editEmpCode'].dirty && focusedField !== 'code') {
+      <mat-error>
+        @if (editedForm['editEmpCode'].errors?.['required']) {
+          Code is required
+        } @else if (editedForm['editEmpCode'].errors?.['maxlength']) {
+          Maximum 10 characters
+        } @else if (editedForm['editEmpCode'].errors?.['empCodeInvalid']) {
+          Format: Start with letters then number
+        } @else if (editedForm['editEmpCode'].errors?.['empCodeDuplicate']) {
+          Employee code already exists!
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <!-- NAME -->
+  <mat-form-field appearance="outline"   [class.focused-field]="focusedField === 'name'">
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="editEmpName"
+      (focus)="focusedField = 'name'"
+      (blur)="focusedField = 'null'"
+    />
+
+  
+    @if (editedForm['editEmpName'].invalid && editedForm['editEmpName'].dirty && focusedField !== 'name') {
+      <mat-error>
+        @if (editedForm['editEmpName'].errors?.['required']) {
+          Name is required
+        } @else if (editedForm['editEmpName'].errors?.['startsWithNumber']) {
+          Name cannot start with a number
+        } @else if (editedForm['editEmpName'].errors?.['containsNumber']) {
+          Numbers are not allowed
+        } @else if (editedForm['editEmpName'].errors?.['specialChar']) {
+          Special characters are not allowed
+        } @else if (editedForm['editEmpName'].errors?.['minlength']) {
+          Name field atleast have 3 letters
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <!-- EMPLOYEE EMAIL -->
+  <mat-form-field appearance="outline"   [class.focused-field]="focusedField === 'email'">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="editEmpEmail"
+      (focus)="focusedField = 'email'"
+      (blur)="focusedField = 'null'"
+    />
+
+    @if (editedForm['editEmpEmail'].invalid && editedForm['editEmpEmail'].dirty && focusedField !== 'email') {
+      <mat-error>
+        @if (editedForm['editEmpEmail'].errors?.['required']) {
+          Email is required
+        } @else if (editedForm['editEmpEmail'].errors?.['empEmailInvalid']) {
+          Enter a valid email (ex.abc123@gmail.com)
+        } @else if (editedForm['editEmpEmail'].errors?.['empEmailDuplicate']) {
+          Employee email already exists!
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <!-- EMPLOYEE PHONE -->
+  <mat-form-field appearance="outline"   [class.focused-field]="focusedField === 'phone'">
+    <mat-label>PhoneNo</mat-label>
+    <input
+      matInput
+      type="tel"
+      formControlName="editEmpPhone"
+      maxlength="10"
+      pattern="[0-9]*"
+      inputmode="numeric"
+      (input)="onlyNumbers($event)"
+      (focus)="focusedField = 'phone'"
+      (blur)="focusedField = 'null'"
+    />
+ 
+    @if (editedForm['editEmpPhone'].invalid && editedForm['editEmpPhone'].dirty && focusedField !== 'phone') {
+      <mat-error>
+        @if (editedForm['editEmpPhone'].errors?.['required']) {
+          PhoneNo is required
+        }
+
+        @if (editedForm['editEmpPhone'].errors?.['pattern']) {
+          Phone number must be exactly 10 digits
+        } @else if (editedForm['editEmpPhone'].errors?.['empPhoneDuplicate']) {
+          Employee phone already exists!
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <div class="button-group single">
+    <button mat-raised-button>Save</button>
+  </div>
+</form>

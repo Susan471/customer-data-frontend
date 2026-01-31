@@ -1,0 +1,90 @@
+/* ================================ */
+/*  COLOR CODING FOR ACTION ICONS   */
+/* ================================ */
+
+/* Edit */
+.fa-edit {
+  color: #1976d2;
+}
+
+/* Delete */
+.fa-trash {
+  color: #e53935;
+}
+
+/* Add (+) */
+.fa-plus {
+  color: #2e7d32;
+}
+
+/* Save */
+.fa-floppy-disk {
+  color: #6a1b9a;
+}
+
+/* Reset */
+.fa-rotate-left {
+  color: #f57c00;
+}
+
+/* Logout */
+.fa-right-from-bracket {
+  color: #d32f2f;
+}
+.eye-btn mat-icon {
+  color: rgb(119, 118, 118); /* your color */
+  position: relative;
+  bottom: 5px;
+  transform: none;
+}
+
+
+/* Remove ripple animation */
+.mat-mdc-icon-button .mat-mdc-button-ripple,
+.mat-mdc-icon-button .mat-mdc-button-persistent-ripple {
+  display: none !important;
+}
+
+/* Remove hover / focus / click background circle */
+.mat-mdc-icon-button {
+  --mdc-icon-button-state-layer-size: 0px !important;
+  --mat-mdc-button-ripple-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Remove focus highlight */
+.mat-mdc-icon-button:focus,
+.mat-mdc-icon-button:active,
+.mat-mdc-icon-button:hover {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Common icon behavior */
+.fa-edit,
+.fa-trash,
+.fa-plus,
+.fa-filter,
+.fa-arrow-left,
+.fa-floppy-disk,
+.fa-rotate-left,
+.fa-times,
+.fa-right-from-bracket {
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* Hover effect */
+.fa-edit:hover,
+.fa-trash:hover,
+.fa-plus:hover,
+.fa-floppy-disk:hover,
+.fa-rotate-left:hover,
+.fa-arrow-left,
+.fa-times,
+.fa-right-from-bracket:hover {
+  transform: scale(1.15);
+  opacity: 0.85;
+}
