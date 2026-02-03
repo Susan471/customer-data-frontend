@@ -4,7 +4,7 @@ import {
 } from '@angular/forms';
 
 import { Observable, map, of } from 'rxjs';
-import { EmployeeService } from '../core/service/employee.service';
+import { EmployeeService } from '../../core/service/employee.service';
 
 export class CommonValidator {
   static empName(control: AbstractControl) {
