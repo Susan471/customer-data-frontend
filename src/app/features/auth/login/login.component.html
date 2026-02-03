@@ -1,0 +1,83 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-container" autocomplete="off">
+  <h2>Login</h2>
+
+  <mat-form-field appearance="outline" [class.focused-field]="focusedField === 'code'">
+    <mat-label>Employee Code</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="loginEmpCode"
+      maxlength="10"
+      (focus)="focusedField = 'code'"
+      (blur)="focusedField = 'null'"
+    />
+    @if (
+      (logForm['loginEmpCode'].touched || logForm['loginEmpCode'].dirty) &&
+      logForm['loginEmpCode'].invalid &&
+      focusedField !== 'code'
+    ) {
+      <mat-error>
+        @if (logForm['loginEmpCode'].errors?.['required']) {
+          Code is required
+        } @else if (logForm['loginEmpCode'].errors?.['empCodeInvalid']) {
+          Invalid employee code!!!
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" [class.focused-field]="focusedField === 'password'">
+    <mat-label>Password</mat-label>
+
+    <input
+      matInput
+      [type]="hidePassword ? 'password' : 'text'"
+      formControlName="loginEmpPassword"
+      maxlength="15"
+      (focus)="focusedField = 'password'"
+      (blur)="focusedField = 'null'"
+    />
+
+    <button
+      mat-icon-button
+      matSuffix
+      type="button"
+      (click)="hidePassword = !hidePassword"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hidePassword"
+      class="eye-btn"
+      disableRipple
+    >
+      <mat-icon>
+        {{ hidePassword ? 'visibility_off' : 'visibility' }}
+      </mat-icon>
+    </button>
+
+    @if (
+      (logForm['loginEmpPassword'].dirty || logForm['loginEmpPassword'].touched) &&
+      focusedField !== 'password' &&
+      logForm['loginEmpPassword'].invalid
+    ) {
+      <mat-error>
+        @if (logForm['loginEmpPassword'].errors?.['required']) {
+          Password is required
+        } @else if (logForm['loginEmpPassword'].errors?.['pattern']) {
+          Invalid Password!Please try again...
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <div class="button-group double">
+    <button mat-raised-button color="primary" type="submit">Login</button>
+    <button mat-raised-button color="warn" type="button" (click)="onCancel()">Reset</button>
+  </div>
+</form>
+
+<div class="auth-footer">
+  <span>New User?</span>
+
+  <a type="button" routerLink="/register"> Register </a>
+</div>

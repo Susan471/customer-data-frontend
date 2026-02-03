@@ -1,0 +1,188 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<div class="header section">
+  <div class="left-headers">
+    <button
+      class="backBtn"
+      (click)="getBack()"
+      matTooltip="Back"
+      matTooltipShowDelay="300"
+      matTooltipHideDelay="100"
+    >
+      <i class="fa fa-arrow-left fa-sm"></i>
+    </button>
+  </div>
+  <div class="right-headers">
+    <div class="user-logout">
+      <div class="username">
+        <i class="fa fa-user"></i>
+        {{ username }}
+      </div>
+
+      <button
+        class="logout-btn"
+        type="button"
+        (click)="logout()"
+        matTooltip="Logout"
+        matTooltipShowDelay="300"
+        matTooltipHideDelay="100"
+      >
+        <i class="fa-solid fa-right-from-bracket icon"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-container" autocomplete="off">
+  <div class="form-header">
+    <h2>Add Employee</h2>
+    <!-- Close button -->
+    <button
+      type="button"
+      class="close-btn"
+      (click)="closeForm()"
+      matTooltip="Close"
+      matTooltipShowDelay="300"
+      matTooltipHideDelay="100"
+    >
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+
+  <!-- EMPLOYEE CODE -->
+  <mat-form-field appearance="outline" [class.focused-field]="focusedField === 'code'">
+    <mat-label>Employee Code</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="addEmpCode"
+      maxlength="10"
+      (focus)="focusedField = 'code'"
+      (blur)="focusedField = null"
+    />
+
+    @if (
+      addedForm['addEmpCode'].invalid &&
+      (addedForm['addEmpCode'].dirty || addedForm['addEmpCode'].touched) &&
+      focusedField !== 'code'
+    ) {
+      <mat-error>
+        @if (addedForm['addEmpCode'].errors?.['required']) {
+          Code is required
+        } @else if (addedForm['addEmpCode'].errors?.['maxlength']) {
+          Maximum 10 characters
+        } @else if (addedForm['addEmpCode'].errors?.['empCodeInvalid']) {
+          Format: Start with letters followed by number
+        } @else if (addedForm['addEmpCode'].errors?.['empCodeDuplicate']) {
+          Employee code already exists!
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <!-- NAME -->
+  <mat-form-field
+    appearance="outline"
+    class="compact"
+    [class.focused-field]="focusedField === 'name'"
+  >
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="addEmpName"
+      [class.focused-field]="focusedField === 'name'"
+      (focus)="focusedField = 'name'"
+      (blur)="focusedField = null"
+    />
+
+    @if (
+      addedForm['addEmpName'].invalid &&
+      (addedForm['addEmpName'].dirty || addedForm['addEmpName'].touched) &&
+      focusedField !== 'name'
+    ) {
+      <mat-error>
+        @if (addedForm['addEmpName'].errors?.['required']) {
+          Name is required
+        } @else if (addedForm['addEmpName'].errors?.['startsWithNumber']) {
+          Name cannot start with a number
+        } @else if (addedForm['addEmpName'].errors?.['containsNumber']) {
+          y Numbers are not allowed
+        } @else if (addedForm['addEmpName'].errors?.['specialChar']) {
+          Special characters are not allowed
+        } @else if (addedForm['addEmpName'].errors?.['minlength']) {
+          Name must be at least 3 characters
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <!-- EMPLOYEE EMAIL -->
+  <mat-form-field appearance="outline" [class.focused-field]="focusedField === 'email'">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="addEmpEmail"
+      (focus)="focusedField = 'email'"
+      (blur)="focusedField = null"
+    />
+
+    @if (
+      addedForm['addEmpEmail'].invalid &&
+      (addedForm['addEmpEmail'].dirty || addedForm['addEmpEmail'].touched) &&
+      focusedField !== 'email'
+    ) {
+      <mat-error>
+        @if (addedForm['addEmpEmail'].errors?.['required']) {
+          Email is required
+        } @else if (addedForm['addEmpEmail'].errors?.['empEmailInvalid']) {
+          Enter a valid email (ex.abc123@gmail.com)
+        } @else if (addedForm['addEmpEmail'].errors?.['empEmailDuplicate']) {
+          Employee email already exists!
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <!-- EMPLOYEE PHONE -->
+  <mat-form-field appearance="outline" [class.focused-field]="focusedField === 'phone'">
+    <mat-label>Phone No</mat-label>
+    <input
+      matInput
+      type="tel"
+      formControlName="addEmpPhone"
+      maxlength="10"
+      inputmode="numeric"
+      (input)="onlyNumbers($event)"
+      (focus)="focusedField = 'phone'"
+      (blur)="focusedField = null"
+    />
+
+    @if (
+      addedForm['addEmpPhone'].invalid &&
+      (addedForm['addEmpPhone'].dirty || addedForm['addEmpPhone'].touched) &&
+      focusedField !== 'phone'
+    ) {
+      <mat-error>
+        @if (addedForm['addEmpPhone'].errors?.['required']) {
+          PhoneNo is required
+        } @else if (addedForm['addEmpPhone'].errors?.['pattern']) {
+          Must be 10 numbers Allowed
+        } @else if (addedForm['addEmpPhone'].errors?.['empPhoneDuplicate']) {
+          Employee phone already exists!
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <div class="button-group double">
+    <button mat-raised-button color="primary" type="submit">Add</button>
+    <button mat-raised-button color="warn" mat-stroked-button type="button" (click)="onCancel()">
+      Reset
+    </button>
+  </div>
+</form>

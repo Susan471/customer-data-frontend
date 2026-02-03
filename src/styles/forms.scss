@@ -14,7 +14,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 21px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   margin-top: 0;
 }
@@ -142,8 +142,7 @@ mat-error {
 /*  BLUE WHEN FOCUSED */
 .focused-field .mdc-notched-outline__leading,
 .focused-field .mdc-notched-outline__notch,
-.focused-field .mdc-notched-outline__trailing 
-{
+.focused-field .mdc-notched-outline__trailing {
   border-color: #3f51b5 !important;
   border-width: 2px !important;
 }

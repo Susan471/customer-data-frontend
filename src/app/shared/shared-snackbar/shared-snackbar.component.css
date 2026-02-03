@@ -1,0 +1,79 @@
+/* Base */
+.toast-card {
+  width: 320px;
+  border-radius: 12px;
+  color: black;
+  background-color: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  font-family: Arial, sans-serif;
+}
+
+/* Header colors by type */
+.toast-card.success .toast-header {
+  background: green;
+  color: white;
+}
+.toast-card.error .toast-header {
+  background: white;
+  color: rgb(197, 58, 58);
+}
+.toast-card.warning .toast-header {
+  background: #fff7ed;
+  color: #c2410c;
+}
+.toast-card.confirm .toast-header {
+  background: #ffffff;
+  color: #3730a3;
+}
+
+.toast-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  font-weight: 600;
+  height: 20px;
+}
+
+.toast-body {
+  padding: 16px;
+  font-size: 14px;
+  color: #0c0c0c;
+}
+/* Smaller layout for confirm type */
+.toast-card.confirm .toast-body {
+  padding: 12px 16px 6px 16px;
+}
+
+.toast-card.confirm .toast-actions {
+  padding: 6px 12px 10px 12px;
+  gap: 20px;
+}
+
+/* Buttons */
+.toast-actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-top: 1px solid #e5e7eb;
+}
+.toast-actions button {
+  font-size: 12px;
+  padding: 4px 10px;
+  align-items: center;
+  min-width: 80px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 6px;
+}
+
+.confirm-btn {
+  color: white;
+  background: #2cb910;
+}
+.cancel-btn {
+  color: white;
+  background: #ec2121;
+}
