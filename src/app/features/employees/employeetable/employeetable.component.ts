@@ -37,7 +37,7 @@ import { MatCard } from '@angular/material/card';
 import { AuthService } from '../../../core/service/auth.service';
 import { EmployeeService } from '../../../core/service/employee.service';
 import { ToastService } from '../../../core/service/toast.service';
-import { Employee } from '../../../core/models/employee.model';
+import { Employee } from 'src/app/core/models/models/employee.model';
 
 export type EmpFilterKey =
   | 'empCode'

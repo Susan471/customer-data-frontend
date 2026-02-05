@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 interface LoginResponse {
   Success: boolean;
@@ -13,12 +14,17 @@ interface LoginResponse {
   providedIn: 'root',
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:8085/api/employees';
-
+  private employeeUrl = `${environment.apiBaseUrl}`;
   private http = inject(HttpClient);
 
-  loginEmployee(empCode: string, empPassword: string): Observable<LoginResponse> {
+  loginEmployee(
+    empCode: string,
+    empPassword: string,
+  ): Observable<LoginResponse> {
     const loginData = { empCode, empPassword };
-    return this.http.post<LoginResponse>(`${this.apiUrl}/login`, loginData);
+    return this.http.post<LoginResponse>(
+      `${this.employeeUrl}/login`,
+      loginData,
+    );
   }
 }
