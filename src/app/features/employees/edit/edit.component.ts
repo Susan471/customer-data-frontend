@@ -14,7 +14,7 @@ import { CommonValidator } from '../../../shared/Validators/common.validators';
 
 import { MatTooltip } from '@angular/material/tooltip';
 import { EmployeeService } from '../../../core/service/employee.service';
-import { Employee } from '../../../core/models/employee.model';
+import { Employee } from '../../../core/models/models/employee.model';
 
 import { HttpClientModule } from '@angular/common/http';
 
