@@ -2,8 +2,11 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../../../environments/environment';
-import { Employee, LoginResponse } from '../employee.model';
+import { environment } from '../../../environments/environment.prod';
+import {
+  Employee,
+  LoginResponse,
+} from '../models/models/employee.model';
 
 @Injectable({
   providedIn: 'root',

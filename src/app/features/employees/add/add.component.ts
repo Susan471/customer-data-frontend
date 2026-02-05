@@ -141,7 +141,6 @@ export class AddComponent implements OnInit {
             control.markAsTouched({ onlySelf: true });
         },
       );
-      console.log('Form is Invalid');
       return;
     }
 
@@ -153,12 +152,9 @@ export class AddComponent implements OnInit {
       empPhoneno: this.addForm.value.addEmpPhone,
     };
 
-    console.log('Sending to backend:', emp);
-
     //  Call backend API
     this.employeeService.addEmployee(emp).subscribe({
       next: (res) => {
-        console.log('Backend response:', res);
         this.toast.showSuccess(
           'Employee registered successfully',
         );

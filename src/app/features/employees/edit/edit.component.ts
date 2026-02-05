@@ -14,7 +14,6 @@ import { CommonValidator } from '../../../shared/Validators/common.validators';
 
 import { MatTooltip } from '@angular/material/tooltip';
 import { EmployeeService } from '../../../core/service/employee.service';
-import { Employee } from '../../../core/models/employee.model';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -26,6 +25,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastService } from '../../../core/service/toast.service';
 
 import { AuthService } from '../../../core/service/auth.service';
+import { Employee } from '../../../core/models/models/employee.model';
 
 @Component({
   selector: 'app-edit',
@@ -86,7 +86,6 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
     this.empCode =
       this.route.snapshot.paramMap.get('empCode')!; //read value from url
-    console.log('EmpCode from Url:', this.empCode);
 
     this.authService.username$.subscribe((name) => {
       this.username = name;
@@ -115,7 +114,6 @@ export class EditComponent implements OnInit {
             'Failed to fetch Employee data',
             err,
           );
-          console.log('Backend message:', err.error);
         },
       });
   }
@@ -127,7 +125,6 @@ export class EditComponent implements OnInit {
 
   onSubmit() {
     if (this.editForm.invalid) {
-      console.log('Form is Invalid');
       return;
     }
 
@@ -143,14 +140,11 @@ export class EditComponent implements OnInit {
       empPassword: undefined, // <-- match DTO
     };
 
-    console.log('Sending to backend:', empDTO);
-
     // Call backend API
     this.employeeService
       .updateEmployee(this.id, empDTO)
       .subscribe({
         next: (res) => {
-          console.log('Backend response:', res);
           this.toast.showSuccess(
             'Employee edited successfully',
           );

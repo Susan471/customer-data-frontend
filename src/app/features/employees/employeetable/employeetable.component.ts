@@ -37,7 +37,7 @@ import { MatCard } from '@angular/material/card';
 import { AuthService } from '../../../core/service/auth.service';
 import { EmployeeService } from '../../../core/service/employee.service';
 import { ToastService } from '../../../core/service/toast.service';
-import { Employee } from '../../../core/models/employee.model';
+import { Employee } from '../../../core/models/models/employee.model';
 
 export type EmpFilterKey =
   | 'empCode'
@@ -250,7 +250,6 @@ export class EmployeetableComponent
     // set the empCode
     this.loggedInEmpCode =
       localStorage.getItem('EmpCode') || '';
-    console.log('Logged-in empCode:', this.loggedInEmpCode);
     //set username above the logout button
     this.authService.username$.subscribe((name) => {
       this.username = name;
@@ -310,9 +309,6 @@ export class EmployeetableComponent
   }
 
   deleteEmployee(empCode: string): void {
-    console.log('Clicked empCode:', empCode);
-    console.log('Logged-in empCode:', this.loggedInEmpCode);
-
     if (
       empCode.trim().toLowerCase() ===
       this.loggedInEmpCode.trim().toLowerCase()
@@ -339,8 +335,6 @@ export class EmployeetableComponent
               this.toast.showSuccess(
                 'Employee Deleted Successfully',
               );
-
-              console.log(res);
             },
             error: (err) => {
               this.toast.showError(
@@ -488,7 +482,6 @@ export class EmployeetableComponent
     column: EmpFilterKey,
     event?: MouseEvent,
   ) {
-    console.log('Filter clicked for column:', column);
     // Toggle filter for same column
     if (this.activeColumnFilter === column) {
       this.activeColumnFilter = null;
@@ -594,7 +587,6 @@ export class EmployeetableComponent
     this.employeeService.getAllEmployees().subscribe({
       next: (data) => {
         this.dataSource.data = data;
-        console.log(this.dataSource);
         if (this.skipSavedFilterOnce) {
           this.resetToDefaultView(); // only once
           this.skipSavedFilterOnce = false;
